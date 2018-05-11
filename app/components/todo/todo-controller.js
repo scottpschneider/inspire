@@ -1,4 +1,4 @@
-function TodoController() {
+function ToDoController() {
 	// new up the TodoService that has already been configured for your use
 	// You will need four methods
 	// getTodos should request your api/todos and give an array of todos to your callback fn
@@ -9,15 +9,30 @@ function TodoController() {
 	var todoService = new TodoService()
 
 	// Use this getTodos function as your callback for all other edits
-	function getTodos(){
+	function getTodos() {
 		//FYI DONT EDIT ME :)
 		todoService.getTodos(draw)
 	}
 
 	function draw(todos) {
+		console.log('what is the todo', todos)
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
-		var template = ''
+		var template = '<ul>'
+		for (let i = 0; i < todos.length; i++) {
+			const todo = todos[i];
+			if (!todo.completed) {
+				template += `
+				<li>description: ${todo.description}</li>
+				`
+			} else {
+				template += `<li>${todo.description}</li>`
+
+			}
+			template+=`</ul>`
+		}
+		
+		document.getElementById('todo').innerHTML = template
 		//DONT FORGET TO LOOP
 	}
 
@@ -27,13 +42,14 @@ function TodoController() {
 		var form = e.target
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			data: todo.description.value
 		}
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		todoService.addTodo(todo, getTodos)
-		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
+		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
 	this.toggleTodoStatus = function (todoId) {
