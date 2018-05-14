@@ -1,7 +1,7 @@
 function TodoService() {
 	// A local copy of your todos
 	var todoList = []
-	var baseUrl = 'https://bcw-sandbox.herokuapp.com/api/YOURNAME/todos'
+	var baseUrl = 'https://bcw-sandbox.herokuapp.com/api/ScottSchneider/todos'
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
@@ -17,16 +17,17 @@ function TodoService() {
 			.fail(logError)
 	}
 
-	this.addTodo = function (todo) {
+	this.addTodo = function (todo, cb) {
 		// WHAT IS THIS FOR???
 		$.post(baseUrl, todo)
 			.then(function(res){ // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-				
+				console.log("addTodo ran")
+				cb()
 			}) 
 			.fail(logError)
 	}
 
-	this.toggleTodoStatus = function (todoId) {
+	this.toggleTodoStatus = function (todoId, cb) {
 		// MAKE SURE WE THINK THIS ONE THROUGH
 		//STEP 1: Find the todo by its index **HINT** todoList
 

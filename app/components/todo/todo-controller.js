@@ -41,17 +41,17 @@ function TodoController() {
 	this.addTodoFromForm = function addTodoFromForm(e) {
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
-		var form = e.target
+		var form = e.target.description.value;
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
-			data: todo.description.value
+			description: form
 		}
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
-		todoService.addTodo(draw)
-		data.getTodos()
+		todoService.addTodo(todo, draw)
+		//data.getTodos()
 		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 

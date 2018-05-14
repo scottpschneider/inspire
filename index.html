@@ -26,10 +26,10 @@
 				<div id="todo">
 					<!--<form onsubmit="app.controllers.todoController.addtodo(event)">-->
 					<div id="list" </div>
-						<form onsubmit="addTodoFromForm">
+						<form onsubmit="app.controllers.todoController.addtodo(event)">
 							<ul>
 								<input type="checkbox">
-								<input type="description" name="todo" placeholder="New Todo">
+								<input type="text" name="description" placeholder="New Todo">
 							</ul>
 							<!-- input tag for todo description with name= description-->
 						</form>
