@@ -18,13 +18,13 @@ function TodoController() {
 		console.log('what is the todo', todos)
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
-		var template = '<ul>'
+		var template = `<ul>${todos.length} Todos`
 		for (let i = 0; i < todos.length; i++) {
 			const todo = todos[i];
 			if (!todo.completed) {
 				template += `
 				<button style="autofocus" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Remove</button>
-				<input onclick=add.check type="checkbox"><li>description: ${todo.description}</li>
+				<input onclick=add.check type="checkbox"><li><em><strong>ToDo<strong><em>: ${todo.description}</li>
 				`
 			} else {
 				template += `<li><strike>${todo.description}</strike></li>`

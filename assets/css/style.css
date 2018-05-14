@@ -4,7 +4,11 @@ html, body{
     outline-color: black;
     background-repeat: no-repeat; 
 }
-
+p{
+    font-size: 25;
+    font-family: Cambria;
+    font-weight: bold;
+}
 div.absolute {
     position: absolute;
     bottom: 10px;
