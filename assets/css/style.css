@@ -1,0 +1,11 @@
+body{
+    color: white;
+    outline-color: black
+}
+.container{
+    flex-direction: column-reverse;
+    align-self: flex-end;
+}
+.item{
+    align-self: flex-end;
+}

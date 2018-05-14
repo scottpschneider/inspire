@@ -12,7 +12,7 @@ function TodoService() {
 	this.getTodos = function (draw) {
 		$.get(baseUrl)
 			.then(function (res) { // <-- WHY IS THIS IMPORTANT????
-				
+				draw(todoList)
 			})
 			.fail(logError)
 	}
@@ -37,7 +37,7 @@ function TodoService() {
 			method: 'PUT',
 			contentType: 'application/json',
 			url: baseUrl + '/' + todoId,
-			data: JSON.stringify(YOURTODOVARIABLEHERE)
+			data: JSON.stringify(todoList)
 		})
 			.then(function (res) {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
@@ -47,7 +47,16 @@ function TodoService() {
 
 	this.removeTodo = function () {
 		// Umm this one is on you to write.... It's also unique, like the ajax call above. The method is a DELETE
-		
+		$.ajax({
+			method: 'DELETE',
+			contentType: 'application/json',
+			url: baseUrl +'/'+todoId,
+			data: JSON.stringify(todoList)
+		})
+		.then(function(res){
+
+		})
+		.fail(logError)
 	}
 
 }
