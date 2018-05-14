@@ -16,7 +16,6 @@ function TodoController() {
 
 	function draw(todos) {
 		console.log('what is the todo', todos)
-		debugger
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
 		var template = '<ul>'
@@ -50,7 +49,7 @@ function TodoController() {
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
-		todoService.addTodo(todo, draw)
+		todoService.addTodo(todo, getTodos)
 		//data.getTodos()
 		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}

@@ -1,10 +1,13 @@
-body{
+html, body{
+    height: 100%;
     color: white;
     outline-color: black
 }
+
 .container{
     flex-direction: column-reverse;
     align-self: flex-end;
+    align-items: flex-end
 }
 .item{
     align-self: flex-end;
