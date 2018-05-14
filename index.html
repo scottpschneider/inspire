@@ -1,60 +1,59 @@
 <html>
-
-<head>
-	<meta charset="UTF-8">
-	<title>Inspire</title>
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-</head>
-
-<body id="body">
-	<div class="container"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<div id="weather">
-					Your Weather Template
+	
+	<head>
+		<meta charset="UTF-8">
+		<title>Inspire</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+		crossorigin="anonymous">
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	
+	<body id="body">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div id="weather">
+						Your Weather Template
+					</div>
 				</div>
-			</div>
-			<div class="col">
-				<div id="quote">
-					The Quote
-					<div id="quote"></div>
+				<div class="col mt-1 mb-5 text-right"><iframe src="http://free.timeanddate.com/clock/i68nljev/n80/fn2/fs18/fc666/tct/pct/ftb/tt0/tw0/tm1/ts1/tb4" frameborder="0" width="133" height="54" allowTransparency="true"></iframe>
 				</div>
-			</div>
+
+
 			<div class="col">
 				A Todo List
 				<div id="todo">
 					<!--<form onsubmit="app.controllers.todoController.addtodo(event)">-->
-					<div id="list" </div>
-						<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-							<ul>
-								<input type="checkbox">
-								<input type="text" name="description" placeholder="New Todo">
-							</ul>
-							<!-- input tag for todo description with name= description-->
-						</form>
+					<div id="list">
 					</div>
 				</div>
 			</div>
+			<footer>
+				<div id="quote" class="footer">
+					The Quotes
+					<div id="quote"></div>
+				</div>
 		</div>
-		<!--JS Libraries-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		 
-		<!--Services-->
-		<script src="app/components/weather/weather-service.js"></script>
-		<script src="app/components/image/image-service.js"></script>
-		<script src="app/components/quote/quote-service.js"></script>
-		<script src="app/components/todo/todo-service.js"></script>
+		</footer>
+	</div>
+	</div>
+	<!--JS Libraries-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-		<!--Controllers-->
-		<script src="app/components/weather/weather-controller.js"></script>
-		<script src="app/components/image/image-controller.js"></script>
-		<script src="app/components/quote/quote-controller.js"></script>
-		<script src="app/components/todo/todo-controller.js"></script>
+	<!--Services-->
+	<script src="app/components/weather/weather-service.js"></script>
+	<script src="app/components/image/image-service.js"></script>
+	<script src="app/components/quote/quote-service.js"></script>
+	<script src="app/components/todo/todo-service.js"></script>
 
-		<!--Initialize App-->
-		<script src="app/init.js"></script>
+	<!--Controllers-->
+	<script src="app/components/weather/weather-controller.js"></script>
+	<script src="app/components/image/image-controller.js"></script>
+	<script src="app/components/quote/quote-controller.js"></script>
+	<script src="app/components/todo/todo-controller.js"></script>
+
+	<!--Initialize App-->
+	<script src="app/init.js"></script>
 </body>
 
 </html>

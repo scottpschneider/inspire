@@ -9,22 +9,25 @@ function TodoService() {
 		//do this without breaking the controller/service responsibilities
 	}
 
-	this.getTodos = function (draw) {
+	this.getTodos = function (cb) {
+
 		$.get(baseUrl)
 			.then(function (res) { // <-- WHY IS THIS IMPORTANT????
-				console.log(res)
-				draw(todoList)
+				console.log(res.data)
+
+				cb(res.data)
 			})
 			.fail(logError)
 	}
 
-	this.addTodo = function (todo, cb) {
+	this.addTodo = function removeTodo(todo, cb) {
 		// WHAT IS THIS FOR???
+
 		$.post(baseUrl, todo)
-			.then(function(res){ // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
+			.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
 				console.log("addTodo ran")
 				cb()
-			}) 
+			})
 			.fail(logError)
 	}
 
@@ -42,23 +45,23 @@ function TodoService() {
 			data: JSON.stringify(todoList)
 		})
 			.then(function (res) {
+				todo.completed = !todo.completed
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
 			})
 			.fail(logError)
 	}
 
-	this.removeTodo = function () {
+	this.removeTodo = function removeTodo(todoId, cb) {
 		// Umm this one is on you to write.... It's also unique, like the ajax call above. The method is a DELETE
 		$.ajax({
 			method: 'DELETE',
 			contentType: 'application/json',
-			url: baseUrl +'/'+todoId,
+			url: baseUrl + '/' + todoId,
 			data: JSON.stringify(todoList)
+		}).then(res => {
+			cb()
 		})
-		.then(function(res){
-
-		})
-		.fail(logError)
+			.fail(logError)
 	}
 
 }

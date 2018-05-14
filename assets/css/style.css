@@ -1,13 +1,30 @@
 html, body{
     height: 100%;
-    color: white;
-    outline-color: black
+    color: rgb(173, 141, 141);
+    outline-color: black;
+    background-repeat: no-repeat; 
 }
 
+div.absolute {
+    position: absolute;
+    bottom: 10px;
+    width: 50%;
+    border: 3px solid #8AC007;
+}
+div.relative {
+    position: relative;
+    width: 50%;
+    bottom: 5px;
+    border: 3px solid #8AC007;
+} 
+.div{
+    background-color: rgba(.5);
+}
 .container{
+    min-height: 100vh;
     flex-direction: column-reverse;
     align-self: flex-end;
-    align-items: flex-end
+    align-items: flex-end;
 }
 .item{
     align-self: flex-end;

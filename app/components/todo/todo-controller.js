@@ -23,18 +23,23 @@ function TodoController() {
 			const todo = todos[i];
 			if (!todo.completed) {
 				template += `
-				<li>description: ${todo.description}</li>
+				<button style="autofocus" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Remove</button>
+				<input onclick=add.check type="checkbox"><li>description: ${todo.description}</li>
 				`
 			} else {
-				template += `<li>${todo.description}</li>`
-
+				template += `<li><strike>${todo.description}</strike></li>`
 			}
-			template+=`</ul>`
 		}
-		
+		template += `</ul> 
+		<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+						<ul>
+							<input type="text" name="description" placeholder="New Todo">
+						</ul>
+						<!-- input tag for todo description with name= description-->
+					</form>`
+
 		document.getElementById('todo').innerHTML = template
 		//DONT FORGET TO LOOP
-		draw(todos)
 	}
 
 	this.addTodoFromForm = function addTodoFromForm(e) {
@@ -62,10 +67,11 @@ function TodoController() {
 
 	this.removeTodo = function (todoId) {
 		// ask the service to run the remove todo with this id
+		todoService.removeTodo(todoId, getTodos)
 
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
-
+	getTodos()
 }
